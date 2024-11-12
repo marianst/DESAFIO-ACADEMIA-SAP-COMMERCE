@@ -36,7 +36,6 @@ public class Curso implements Serializable {
 	}
 
 	public Curso(Long id, String nome, String descricao, String dataCriacao) {
-		super();
 		this.id = id;
 		this.nome = nome;
 		this.descricao = descricao;
