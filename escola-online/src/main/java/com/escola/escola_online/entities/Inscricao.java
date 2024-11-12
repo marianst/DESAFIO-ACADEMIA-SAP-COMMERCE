@@ -1,7 +1,7 @@
 package com.escola.escola_online.entities;
 
 import java.io.Serializable;
-import java.util.Set;
+import java.time.LocalDate;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -29,7 +29,7 @@ public class Inscricao implements Serializable {
 	private Curso curso;
 	
 
-	private String dataInscricao;
+	private LocalDate dataInscricao;
 	
 
 
@@ -74,13 +74,13 @@ public class Inscricao implements Serializable {
 
 
 
-	public String getDataInscricao() {
+	public LocalDate getDataInscricao() {
 		return dataInscricao;
 	}
 
 
 
-	public void setDataInscricao(String dataInscricao) {
+	public void setDataInscricao(LocalDate dataInscricao) {
 		this.dataInscricao = dataInscricao;
 	}
 

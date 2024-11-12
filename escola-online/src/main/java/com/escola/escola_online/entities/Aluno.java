@@ -1,10 +1,9 @@
 package com.escola.escola_online.entities;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
-
-import javax.management.relation.Role;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -26,7 +25,7 @@ public class Aluno implements Serializable {
 	private Long id;
 	private String nome;
 	private String email;
-	private String dataCadastro;
+	private LocalDate dataCadastro;
 	
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "tb_inscricao",
@@ -38,7 +37,7 @@ public class Aluno implements Serializable {
 
 	}
 
-	public Aluno(Long id, String nome, String email, String dataCadastro, Set<Curso> inscricao) {
+	public Aluno(Long id, String nome, String email, LocalDate dataCadastro, Set<Curso> inscricao) {
 		this.id = id;
 		this.nome = nome;
 		this.email = email;
@@ -69,11 +68,11 @@ public class Aluno implements Serializable {
 		this.email = email;
 	}
 
-	public String getDataCadastro() {
+	public LocalDate getDataCadastro() {
 		return dataCadastro;
 	}
 
-	public void setDataCadastro(String dataCadastro) {
+	public void setDataCadastro(LocalDate dataCadastro) {
 		this.dataCadastro = dataCadastro;
 	}
 	

@@ -1,18 +1,14 @@
 package com.escola.escola_online.entities;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.management.relation.Role;
-
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 
@@ -26,7 +22,7 @@ public class Curso implements Serializable {
 	private Long id;
 	private String nome;
 	private String descricao;
-	private String dataCriacao;
+	private LocalDate dataCriacao;
 	
 	@ManyToMany(mappedBy= "cursos")
 	private Set<Aluno> alunos = new HashSet<>();
@@ -35,7 +31,7 @@ public class Curso implements Serializable {
 		
 	}
 
-	public Curso(Long id, String nome, String descricao, String dataCriacao) {
+	public Curso(Long id, String nome, String descricao, LocalDate dataCriacao) {
 		this.id = id;
 		this.nome = nome;
 		this.descricao = descricao;
@@ -66,11 +62,11 @@ public class Curso implements Serializable {
 		this.descricao = descricao;
 	}
 
-	public String getDataCriacao() {
+	public LocalDate getDataCriacao() {
 		return dataCriacao;
 	}
 
-	public void setDataCriacao(String dataCriacao) {
+	public void setDataCriacao(LocalDate dataCriacao) {
 		this.dataCriacao = dataCriacao;
 	}
 	
