@@ -4,4 +4,4 @@ select * from tb_aluno
 
 insert into tb_curso (id,data_criacao,descricao,nome) values (1,'12/11/2024','fundamentos','java')
 
-insert into tb_inscricao (aluno_id,curso_id) values (1,1)
+insert into tb_inscricao (aluno_id,curso_id,id,data_inscricao) values (1,1,1,'12/11/2024')
