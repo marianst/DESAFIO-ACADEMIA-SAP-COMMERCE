@@ -1,0 +1,7 @@
+insert into tb_aluno (id,data_cadastro,email,nome) values (1,'12/11/2024','mariana_anst@hotmail.com','mariana')
+
+select * from tb_aluno
+
+insert into tb_curso (id,data_criacao,descricao,nome) values (1,'12/11/2024','fundamentos','java')
+
+insert into tb_inscricao (aluno_id,curso_id) values (1,1)
