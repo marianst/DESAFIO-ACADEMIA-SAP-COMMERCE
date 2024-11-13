@@ -22,11 +22,11 @@ public class Inscricao implements Serializable {
 	
 	@ManyToOne
 	@JoinColumn(name="aluno_id")
-	private Aluno aluno;
+	private Aluno alunoID;
 	
 	@ManyToOne
 	@JoinColumn(name="curso_id")
-	private Curso curso;
+	private Curso cursoID;
 	
 
 	private LocalDate dataInscricao;
@@ -50,26 +50,26 @@ public class Inscricao implements Serializable {
 
 
 
-	public Aluno getAluno() {
-		return aluno;
+	public Aluno getAlunoID() {
+		return alunoID;
 	}
 
 
 
-	public void setAluno(Aluno aluno) {
-		this.aluno = aluno;
+	public void setAlunoID(Aluno alunoID) {
+		this.alunoID = alunoID;
 	}
 
 
 
-	public Curso getCurso() {
-		return curso;
+	public Curso getCursoID() {
+		return cursoID;
 	}
 
 
 
-	public void setCurso(Curso curso) {
-		this.curso = curso;
+	public void setCursoID(Curso cursoID) {
+		this.cursoID = cursoID;
 	}
 
 
@@ -89,6 +89,7 @@ public class Inscricao implements Serializable {
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
+
 
 
 	

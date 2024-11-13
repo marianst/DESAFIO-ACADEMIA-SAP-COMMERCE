@@ -18,19 +18,19 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.escola.escola_online.dto.AlunoDTO;
-import com.escola.escola_online.services.AlunoService;
+import com.escola.escola_online.entities.Inscricao;
+import com.escola.escola_online.services.InscricaoService;
 
 
 @RestController
-@RequestMapping(value = "/aluno")
-public class AlunoController {
+@RequestMapping(value = "/inscricao")
+public class InscricaoController {
 	
 	@Autowired
-	private AlunoService service;
+	private InscricaoService service;
 	
 	@GetMapping
-	public ResponseEntity<Page<AlunoDTO>> findAll(
+	public ResponseEntity<Page<Inscricao>> findAll(
 			@RequestParam(value = "page", defaultValue = "0") Integer page,
 			@RequestParam(value = "linesPerPage", defaultValue = "10") Integer linesPerPage,
 			@RequestParam(value = "direction", defaultValue = "ASC") String direction,
@@ -39,20 +39,20 @@ public class AlunoController {
 		
 		PageRequest pageRequest = PageRequest.of(page, linesPerPage, Direction.valueOf(direction), orderBy);
 		
-		Page<AlunoDTO> list = service.findAllPaged(pageRequest);
+		Page<Inscricao> list = service.findAllPaged(pageRequest);
 		
 		return ResponseEntity.ok().body(list);
 	}
 	
 	@GetMapping(value = "/{id}")
-	public ResponseEntity<AlunoDTO> findById(@PathVariable Long id){
-		AlunoDTO dto = service.findById(id);
+	public ResponseEntity<Inscricao> findById(@PathVariable Long id){
+		Inscricao dto = service.findById(id);
 		return ResponseEntity.ok().body(dto);
 	}
 	
 	
 	@PostMapping
-	public ResponseEntity<AlunoDTO> insert(@RequestBody AlunoDTO dto){
+	public ResponseEntity<Inscricao> insert(@RequestBody Inscricao dto){
 		dto = service.insert(dto);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
 				.buildAndExpand(dto.getId()).toUri();		
@@ -60,13 +60,13 @@ public class AlunoController {
 	}
 	
 	@PutMapping(value = "/{id}")
-	public ResponseEntity<AlunoDTO> update(@PathVariable Long id, @RequestBody AlunoDTO dto){
+	public ResponseEntity<Inscricao> update(@PathVariable Long id, @RequestBody Inscricao dto){
 		dto = service.update(id, dto);
 		return ResponseEntity.ok().body(dto);
 	}
 	
 	@DeleteMapping(value = "/{id}")
-	public ResponseEntity<AlunoDTO> delete(@PathVariable Long id){
+	public ResponseEntity<Inscricao> delete(@PathVariable Long id){
 		service.delete(id);
 		return ResponseEntity.noContent().build();
 	}
